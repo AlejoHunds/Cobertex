@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Cobertex</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos específicos para la página de Contacto */
+        .hero-contact {
+            /* Degradado blanco que se funde con la imagen de fondo */
+            background: linear-gradient(to right, rgba(255,255,255,1) 35%, rgba(255,255,255,0.85) 55%, rgba(255,255,255,0) 100%), url('https://via.placeholder.com/1920x800/EAE0D5/333?text=Cama+Contacto') center/cover no-repeat;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+        }
+
+        .cta-banner {
+            background: linear-gradient(to right, rgba(244, 235, 225, 1) 40%, rgba(244, 235, 225, 0.7) 65%, rgba(244, 235, 225, 0) 100%), url('https://via.placeholder.com/1200x400/D2B48C/333?text=Renueva+tu+descanso') center/cover no-repeat;
+            border-radius: 1rem;
+        }
+
+        .contact-icon-box {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--cobertex-red);
+            background-color: rgba(218, 37, 29, 0.05);
+            border: 1px solid var(--cobertex-red);
+            flex-shrink: 0;
+        }
+
+        .contact-info-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.08)!important;
+        }
+
+        /* Acordeón de Preguntas Frecuentes */
+        .accordion-button:not(.collapsed) {
+            background-color: transparent;
+            color: var(--cobertex-red);
+            box-shadow: none;
+        }
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(0,0,0,.125);
+        }
+        .accordion-item {
+            border-left: none;
+            border-right: none;
+            border-radius: 0;
+        }
+        .accordion-item:first-of-type {
+            border-top: none;
+        }
+
+        /* Ajustes para móviles */
+        @media (max-width: 768px) {
+            .hero-contact {
+                background: linear-gradient(to bottom, rgba(255,255,255,1) 40%, rgba(255,255,255,0.8) 70%, rgba(255,255,255,0) 100%), url('https://via.placeholder.com/1920x800/EAE0D5/333?text=Cama+Contacto') center/cover no-repeat;
+                min-height: 400px;
+                text-align: center;
+            }
+            .cta-banner {
+                background: linear-gradient(to bottom, rgba(244, 235, 225, 1) 50%, rgba(244, 235, 225, 0.8) 80%, rgba(244, 235, 225, 0) 100%), url('https://via.placeholder.com/1200x400/D2B48C/333?text=Renueva+tu+descanso') center/cover no-repeat;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand logo" href="index.html">Cober<span class="text-danger">tex</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nosotros.html">Quiénes somos</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Catálogo</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="catalogo.html">Cobertores y Edredones</a></li>
+                            <li><a class="dropdown-item" href="sabanas.html">Sábanas</a></li>
+                            <li><a class="dropdown-item" href="colchones.html">Colchones</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="personalizacion.html">Personalización</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-bold border-bottom border-danger border-3 pb-1" href="contacto.html">Contacto</a></li>
+                </ul>
+                <div class="d-flex align-items-center text-white gap-3">
+                    <i class="fas fa-search" style="cursor:pointer"></i>
+                    <div class="position-relative" style="cursor:pointer">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge-cart" id="cartCount">0</span>
+                    </div>
+                    <i class="fas fa-bars" style="cursor:pointer"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-contact shadow-sm">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-5 col-md-7">
+                    <h1 class="display-3 fw-bold mb-4">Contáctanos</h1>
+                    <p class="lead text-dark mb-4">Estamos aquí para ayudarte a encontrar cobertores, edredones, sábanas y colchones ideales para tu hogar o negocio. Escríbenos y te asesoraremos con gusto.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        
+        <div class="row g-5 mb-5 align-items-start">
+            
+            <div class="col-lg-4">
+                <div class="d-flex flex-column gap-4 mt-lg-4">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 contact-info-card bg-white">
+                        <div class="d-flex align-items-center gap-4">
+                            <div class="contact-icon-box">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Teléfono</h6>
+                                <p class="text-muted mb-0">+593 99 276 5798</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card border-0 shadow-sm rounded-4 p-4 contact-info-card bg-white">
+                        <div class="d-flex align-items-center gap-4">
+                            <div class="contact-icon-box">
+                                <i class="far fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Correo</h6>
+                                <p class="text-muted mb-0">ventas@cobertex.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card border-0 shadow-sm rounded-4 p-4 contact-info-card bg-white">
+                        <div class="d-flex align-items-center gap-4">
+                            <div class="contact-icon-box">
+                                <i class="far fa-clock"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Horario</h6>
+                                <p class="text-muted mb-0">Lunes a viernes · 09:00 a 18:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 bg-white">
+                    <h3 class="fw-bold mb-2">Envíanos un mensaje</h3>
+                    <p class="text-muted small mb-4">Completa el formulario y nos pondremos en contacto contigo.</p>
+                    
+                    <form id="contactForm" action="https://formsubmit.co/apmp2024@gmail.com" method="POST">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_subject" value="¡Nuevo mensaje desde la página de Contacto!">
+                        <input type="hidden" name="_next" value="https://tudominio.com/contacto.html">
+                        <input type="hidden" name="_template" value="table">
+
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-muted">Nombre</label>
+                                <input type="text" name="Nombre" class="form-control" placeholder="Ej. Ana Pérez" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-muted">Correo</label>
+                                <input type="email" name="Email" class="form-control" placeholder="Ej. correo@ejemplo.com" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-muted">Teléfono</label>
+                                <input type="tel" name="Telefono" class="form-control" placeholder="Ej. 099 000 0000" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-muted">Asunto</label>
+                                <input type="text" name="Asunto" class="form-control" placeholder="Ej. Consulta sobre productos" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label small fw-bold text-muted">Mensaje</label>
+                                <textarea name="Mensaje" class="form-control" rows="5" placeholder="Cuéntanos cómo podemos ayudarte..." required></textarea>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button type="submit" id="submitContactBtn" class="btn btn-danger py-3 px-5 fw-bold rounded-3">Enviar mensaje <i class="fas fa-chevron-right ms-2 fs-6"></i></button>
+                                <p class="text-muted small mt-3 mb-0">Te responderemos lo antes posible.</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <section class="row align-items-start mb-5 pb-4 bg-white p-5 rounded-4 shadow-sm border">
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <h6 class="text-danger fw-bold letter-spacing-2 text-uppercase small mb-2">Preguntas Frecuentes</h6>
+                <h2 class="fw-bold">Resuelve tus dudas</h2>
+            </div>
+            
+            <div class="col-lg-8">
+                <div class="accordion accordion-flush" id="faqContacto">
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faqHeading1">
+                            <button class="accordion-button fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="true">
+                                ¿Realizan ventas al por mayor?
+                            </button>
+                        </h2>
+                        <div id="faqCollapse1" class="accordion-collapse collapse show" data-bs-parent="#faqContacto">
+                            <div class="accordion-body text-muted small pt-0">
+                                Sí, contamos con planes especiales y descuentos atractivos para negocios, hoteles y distribuidores. Puedes contactarnos especificando el volumen de tu pedido para brindarte una cotización personalizada.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item border-top">
+                        <h2 class="accordion-header" id="faqHeading2">
+                            <button class="accordion-button collapsed fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false">
+                                ¿Tienen envíos a nivel nacional?
+                            </button>
+                        </h2>
+                        <div id="faqCollapse2" class="accordion-collapse collapse" data-bs-parent="#faqContacto">
+                            <div class="accordion-body text-muted small pt-0">
+                                Así es. Trabajamos con empresas de logística confiables para que tus productos lleguen de manera segura a la puerta de tu hogar o negocio en cualquier parte del país.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item border-top border-bottom">
+                        <h2 class="accordion-header" id="faqHeading3">
+                            <button class="accordion-button collapsed fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false">
+                                ¿Puedo solicitar asesoría personalizada?
+                            </button>
+                        </h2>
+                        <div id="faqCollapse3" class="accordion-collapse collapse" data-bs-parent="#faqContacto">
+                            <div class="accordion-body text-muted small pt-0">
+                                ¡Por supuesto! Nuestro equipo de expertos está listo para ayudarte a combinar colores, texturas y elegir los tamaños adecuados para tus colchones. Escríbenos por WhatsApp para una atención más rápida.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-banner p-5 mb-3 shadow-sm">
+            <div class="row align-items-center h-100">
+                <div class="col-lg-5 col-md-7">
+                    <h2 class="fw-bold mb-3 text-dark">Hablemos sobre tu próximo descanso</h2>
+                    <p class="text-dark mb-4">Nuestro equipo está listo para ayudarte a elegir lo mejor para tu hogar o negocio.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="catalogo.html" class="btn btn-danger btn-lg px-4 fw-bold">Ver catálogo <i class="fas fa-chevron-right ms-2 fs-6"></i></a>
+                        <a href="https://wa.me/593992765798" target="_blank" class="btn btn-dark btn-lg px-4 fw-bold">Escríbenos <i class="fab fa-whatsapp ms-2 fs-5"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-dark text-secondary pt-5 pb-4 mt-5">
+        <div class="container">
+            <div class="row g-4 border-bottom border-secondary pb-4 mb-4">
+                <div class="col-md-4">
+                    <h3 class="text-white fw-bold mb-4">Cober<span class="text-danger">tex</span></h3>
+                    <p class="small">Expertos en ropa de cama y descanso. Productos de calidad para bienestar y confort en cada hogar.</p>
+                    <div class="d-flex gap-3 fs-5 mt-3">
+                        <a href="#" class="text-secondary"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-secondary"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-secondary"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" class="text-secondary"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 offset-md-1">
+                    <h6 class="text-white fw-bold mb-3 small">Nosotros</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="nosotros.html" class="text-secondary text-decoration-none">Quiénes somos</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Documentos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="text-white fw-bold mb-3 small">Información</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Preguntas frecuentes</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Ventas al por mayor</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="text-white fw-bold mb-3 small">Atención</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="contacto.html" class="text-secondary text-decoration-none">Contáctanos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center small">
+                <p class="mb-2 mb-md-0">&copy; 2024 Cobertex. Todos los derechos reservados.</p>
+                <div class="d-flex gap-4">
+                    <a href="#" class="text-secondary text-decoration-none">Términos y condiciones</a>
+                    <a href="#" class="text-secondary text-decoration-none">Aviso de privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/593992765798?text=Hola,%20tengo%20una%20duda%20sobre%20los%20productos%20de%20Cobertex." class="whatsapp-float" target="_blank" title="Escríbenos por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lógica sencilla para el contador del carrito (visual)
+            let cartTotal = 0;
+            document.querySelectorAll('.btn-add-cart, .btn-cart-circle').forEach(button => {
+                button.addEventListener('click', () => {
+                    cartTotal++;
+                    document.getElementById('cartCount').textContent = cartTotal;
+                });
+            });
+
+            // Animación al enviar el formulario de contacto
+            const contactForm = document.getElementById('contactForm');
+            if(contactForm) {
+                contactForm.addEventListener('submit', function() {
+                    const btnSubmit = document.getElementById('submitContactBtn');
+                    btnSubmit.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Enviando...';
+                    btnSubmit.classList.add('disabled');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

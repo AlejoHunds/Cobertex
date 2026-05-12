@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personaliza tu cobertor - Cobertex</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos específicos para esta página */
+        .border-dashed {
+            border: 2px dashed #ccc;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .border-dashed:hover, .border-dashed.dragover {
+            border-color: var(--cobertex-red);
+            background-color: rgba(218, 37, 29, 0.05) !important;
+        }
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: rgba(218, 37, 29, 0.1);
+            color: var(--cobertex-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 15px auto;
+        }
+        .step-arrow {
+            color: #ccc;
+            font-size: 1.5rem;
+        }
+        .check-list-icon {
+            color: var(--cobertex-red);
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+        .accordion-button:not(.collapsed) {
+            background-color: rgba(218, 37, 29, 0.05);
+            color: var(--cobertex-red);
+            box-shadow: none;
+        }
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(0,0,0,.125);
+        }
+    </style>
+</head>
+<a href="https://wa.me/593992765798?text=Hola,%20tengo%20una%20duda%20sobre%20los%20productos%20de%20Cobertex." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand logo" href="index.html">Cober<span class="text-danger">tex</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nosotros.html">Quiénes somos</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Catálogo</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="catalogo.html">Cobertores y Edredones</a></li>
+                            <li><a class="dropdown-item" href="sabanas.html">Sábanas</a></li>
+                            <li><a class="dropdown-item" href="colchones.html">Colchones</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link active fw-bold border-bottom border-danger border-3 pb-1" href="personalizacion.html">Personalización</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                </ul>
+                <div class="d-flex align-items-center text-white gap-3">
+                    <i class="fas fa-search" style="cursor:pointer"></i>
+                    <div class="position-relative" style="cursor:pointer">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge-cart" id="cartCount">0</span>
+                    </div>
+                    <i class="fas fa-bars" style="cursor:pointer"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="bg-white py-5 shadow-sm position-relative overflow-hidden">
+        <div class="container py-4">
+            <div class="row align-items-center">
+                <div class="col-md-5 z-1">
+                    <h1 class="display-4 fw-bold mb-4">Personaliza<br>tu cobertor</h1>
+                    <p class="lead text-muted mb-4">Sube tu imagen y envíanos tu diseño para crear un cobertor único. La imagen debe ser vertical, de alta calidad y se colocará dentro de un marco central, con tela complementaria alrededor.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#carga-diseno" class="btn btn-danger btn-lg px-4"><i class="fas fa-cloud-upload-alt me-2"></i> Subir imagen</a>
+                        <a href="https://wa.me/593992765798?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20asesor%C3%ADa%20sobre%20los%20cobertores%20personalizados." target="_blank" class="btn btn-outline-dark btn-lg px-4"><i class="fab fa-whatsapp me-2"></i> Solicitar asesoría</a>
+                    </div>
+                </div>
+                <div class="col-md-7 position-relative mt-5 mt-md-0">
+                    <img src="Imagenes/H2.png" class="img-fluid rounded shadow" alt="Cobertor Personalizado">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container my-5" id="carga-diseno">
+        <div class="row g-4">
+            
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm p-4 p-md-5 h-100 rounded-4">
+                    <h3 class="fw-bold text-center mb-4">Carga tu diseño</h3>
+                    
+                    <form id="designForm" action="https://formsubmit.co/apmp2023@gmail.com" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_subject" value="¡Nuevo pedido de Cobertor Personalizado!">
+                        <input type="hidden" name="_next" value="https://tudominio.com/personalizacion.html">
+                        <input type="hidden" name="_template" value="table">
+
+                        <div class="border-dashed bg-light p-5 text-center rounded-3 mb-4" id="dropZone" onclick="document.getElementById('fileInput').click()">
+                            <i class="fas fa-cloud-upload-alt text-danger mb-3" style="font-size: 3rem;"></i>
+                            <h5 class="fw-bold">Arrastra tu imagen aquí<br>o haz clic para cargar</h5>
+                            <p class="text-muted small mb-0 mt-2">Formatos sugeridos: JPG, PNG, PDF</p>
+                            <p class="text-muted small">Recomendado: imagen vertical de alta resolución</p>
+                            
+                            <input type="file" id="fileInput" name="Imagen_Diseno" class="d-none" accept="image/*,.pdf" required>
+                            <p id="fileNameDisplay" class="text-success fw-bold mt-3 d-none"></p>
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-muted">Nombre</label>
+                                <input type="text" name="Nombre_Cliente" class="form-control" placeholder="Ej. Ana Pérez" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-muted">Correo</label>
+                                <input type="email" name="Correo_Cliente" class="form-control" placeholder="Ej. correo@ejemplo.com" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-muted">Teléfono</label>
+                                <input type="tel" name="Telefono" class="form-control" placeholder="Ej. 099 000 0000" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-muted">Tamaño del cobertor</label>
+                                <select name="Tamano_Cobertor" class="form-select" required>
+                                    <option value="" selected disabled>Selecciona un tamaño</option>
+                                    <option value="1 plaza">1 plaza</option>
+                                    <option value="2 plazas">2 plazas</option>
+                                    <option value="Queen">Queen</option>
+                                    <option value="King">King</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label small fw-bold text-muted">Indicaciones adicionales (opcional)</label>
+                                <textarea name="Indicaciones" class="form-control" rows="3" placeholder="Cuéntanos algún detalle importante sobre tu diseño..."></textarea>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button type="submit" id="submitBtn" class="btn btn-danger w-100 py-3 fw-bold btn-lg">Enviar diseño <i class="fas fa-chevron-right ms-2"></i></button>
+                                <p class="text-center text-muted small mt-2">Te responderemos lo antes posible.</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm p-4 p-md-5 h-100 rounded-4 bg-white">
+                    <h3 class="fw-bold text-center mb-4">Vista previa y especificaciones</h3>
+                    
+                    <div class="row g-4 align-items-center">
+                        <div class="col-md-6">
+                            <img src="https://via.placeholder.com/300x400/D2B48C/333?text=Vista+Previa+Montaña" class="img-fluid rounded shadow" alt="Vista Previa">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="icon-box text-danger border-danger me-3 flex-shrink-0"><i class="fas fa-mobile-alt"></i></div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Formato vertical</h6>
+                                    <p class="small text-muted mb-0">La imagen debe enviarse en orientación vertical.</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="icon-box text-danger border-danger me-3 flex-shrink-0"><i class="fas fa-image"></i></div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Alta calidad</h6>
+                                    <p class="small text-muted mb-0">Mientras mejor sea la resolución, mejor será el resultado final.</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="icon-box text-danger border-danger me-3 flex-shrink-0"><i class="far fa-square"></i></div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">No es panel completo</h6>
+                                    <p class="small text-muted mb-0">El diseño se aplica dentro de un marco central, no cubre todo el cobertor.</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start">
+                                <div class="icon-box text-danger border-danger me-3 flex-shrink-0"><i class="fas fa-border-all"></i></div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Tela complementaria</h6>
+                                    <p class="small text-muted mb-0">El resto del cobertor llevará una tela que combine con tu imagen.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5 pt-5 pb-4">
+            <div class="text-center mb-5">
+                <h6 class="text-danger fw-bold letter-spacing-2 text-uppercase" style="font-size: 0.75rem;">Proceso Simple</h6>
+                <h2 class="fw-bold">¿Cómo funciona?</h2>
+            </div>
+            
+            <div class="row text-center g-4 align-items-center">
+                <div class="col-md-3">
+                    <div class="step-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                    <h6 class="fw-bold">1. Sube tu imagen</h6>
+                    <p class="small text-muted">Carga tu diseño vertical y completa el formulario con tus datos e indicaciones.</p>
+                </div>
+                <div class="col-md-1 d-none d-md-block step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="col-md-2">
+                    <div class="step-icon"><i class="fas fa-search"></i></div>
+                    <h6 class="fw-bold">2. Revisamos tu diseño</h6>
+                    <p class="small text-muted">Nuestro equipo revisará tu imagen y te confirmará que cumple con los requisitos.</p>
+                </div>
+                <div class="col-md-1 d-none d-md-block step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="col-md-2">
+                    <div class="step-icon"><i class="far fa-comment-dots"></i></div>
+                    <h6 class="fw-bold">3. Te contactamos</h6>
+                    <p class="small text-muted">Nos pondremos en contacto contigo para validar detalles y ajustes si es necesario.</p>
+                </div>
+                <div class="col-md-1 d-none d-md-block step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="col-md-2">
+                    <div class="step-icon"><i class="fas fa-cut"></i></div>
+                    <h6 class="fw-bold">4. Fabricamos tu cobertor</h6>
+                    <p class="small text-muted">Una vez aprobado, confeccionamos tu cobertor con la mejor calidad y cuidado.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-5 mt-3">
+            <div class="col-md-5">
+                <h3 class="fw-bold mb-4">Recomendaciones para tu diseño</h3>
+                <ul class="list-unstyled">
+                    <li class="d-flex align-items-center mb-3">
+                        <i class="fas fa-check-circle check-list-icon"></i>
+                        <span class="fw-bold">Usa imágenes nítidas y bien iluminadas.</span>
+                    </li>
+                    <li class="d-flex align-items-center mb-3">
+                        <i class="fas fa-check-circle check-list-icon"></i>
+                        <span class="fw-bold">Prefiere composiciones verticales.</span>
+                    </li>
+                    <li class="d-flex align-items-center mb-3">
+                        <i class="fas fa-check-circle check-list-icon"></i>
+                        <span class="fw-bold">Evita archivos borrosos o muy pequeños.</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="col-md-7">
+                <div class="accordion accordion-flush bg-white rounded shadow-sm border" id="faqAccordion">
+                    <div class="accordion-item rounded">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true">
+                                ¿Qué tipo de imagen puedo enviar?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted small">
+                                Aceptamos fotografías, ilustraciones digitales o patrones en formato JPG, PNG o PDF. Asegúrate de que no infrinjan derechos de autor y que tengan una resolución mínima de 300dpi.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-top">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false">
+                                ¿Puedo solicitar ayuda para ajustar mi diseño?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted small">
+                                ¡Sí! Contamos con un equipo de diseño que puede ayudarte a recortar, encuadrar o ajustar los colores de tu imagen para que luzca perfecta en el cobertor.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-top">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false">
+                                ¿Cómo sabré cómo quedará el cobertor?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted small">
+                                Antes de pasar a producción, te enviaremos un montaje digital (mockup) a tu correo o WhatsApp para que apruebes la posición de la imagen y el color de la tela complementaria.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5 rounded-4 overflow-hidden position-relative" style="background: linear-gradient(to right, rgba(234, 224, 213, 0.9), rgba(234, 224, 213, 0.7)), url('https://via.placeholder.com/1200x300/EAE0D5/333') center/cover; padding: 60px;">
+            <div class="row align-items-center">
+                <div class="col-md-7 ms-auto text-md-start">
+                    <h2 class="fw-bold mb-3">Convierte tu idea en un cobertor único</h2>
+                    <p class="text-dark mb-4">Envíanos tu imagen y nuestro equipo te ayudará a transformarla en un diseño especial.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#carga-diseno" class="btn btn-danger px-4 fw-bold"><i class="fas fa-cloud-upload-alt me-2"></i> Subir imagen</a>
+                        <a href="#" class="btn btn-dark px-4 fw-bold"><i class="fab fa-whatsapp me-2"></i> Contáctanos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-dark text-secondary pt-5 pb-4 mt-5">
+        <div class="container">
+            <div class="row g-4 border-bottom border-secondary pb-4 mb-4">
+                <div class="col-md-4">
+                    <h3 class="text-white fw-bold mb-4">Cober<span class="text-danger">tex</span></h3>
+                    <p class="small">Expertos en ropa de cama y descanso. Productos de calidad para bienestar y confort en cada hogar.</p>
+                    <div class="d-flex gap-3 fs-5 mt-3">
+                        <a href="#" class="text-secondary"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-secondary"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-secondary"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="text-secondary"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 offset-md-1">
+                    <h6 class="text-white fw-bold mb-3 small">Nosotros</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="nosotros.html" class="text-secondary text-decoration-none">Quiénes somos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="text-white fw-bold mb-3 small">Información</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Preguntas frecuentes</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Ventas al por mayor</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="text-white fw-bold mb-3 small">Atención</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Contáctanos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center small">
+                <p class="mb-2 mb-md-0">&copy; 2024 Cobertex. Todos los derechos reservados.</p>
+                <div class="d-flex gap-4">
+                    <a href="#" class="text-secondary text-decoration-none">Términos y condiciones</a>
+                    <a href="#" class="text-secondary text-decoration-none">Aviso de privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lógica del Carrito
+            let cartTotal = 0;
+            document.querySelectorAll('.btn-add-cart, .btn-cart-circle').forEach(button => {
+                button.addEventListener('click', () => {
+                    cartTotal++;
+                    document.getElementById('cartCount').textContent = cartTotal;
+                });
+            });
+
+            // Lógica para Drag & Drop y selección de archivo
+            const dropZone = document.getElementById('dropZone');
+            const fileInput = document.getElementById('fileInput');
+            const fileNameDisplay = document.getElementById('fileNameDisplay');
+            const designForm = document.getElementById('designForm');
+
+            // Prevenir comportamientos por defecto del navegador
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, preventDefaults, false);
+            });
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            // Añadir estilos visuales al arrastrar
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropZone.addEventListener(eventName, () => {
+                    dropZone.classList.add('dragover');
+                }, false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, () => {
+                    dropZone.classList.remove('dragover');
+                }, false);
+            });
+
+            // Manejar archivos soltados
+            dropZone.addEventListener('drop', handleDrop, false);
+
+            function handleDrop(e) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                
+                // CRÍTICO: Asignar los archivos soltados al input real para que se envíen en el form
+                fileInput.files = files; 
+                handleFiles(files);
+            }
+
+            // Manejar archivos seleccionados con clic
+            fileInput.addEventListener('change', function() {
+                handleFiles(this.files);
+            });
+
+            function handleFiles(files) {
+                if(files.length > 0) {
+                    const file = files[0];
+                    // Mostrar el nombre del archivo y cambiar el estilo visual
+                    fileNameDisplay.innerHTML = `<i class="fas fa-check-circle me-1"></i> Archivo seleccionado: ${file.name}`;
+                    fileNameDisplay.classList.remove('d-none');
+                    dropZone.style.borderColor = "var(--cobertex-red)";
+                }
+            }
+
+            // Validación real del envío del formulario
+            designForm.addEventListener('submit', function(e) {
+                // Verificamos si hay un archivo seleccionado
+                const fileSelected = fileInput.files.length > 0;
+                
+                if(!fileSelected) {
+                    e.preventDefault(); // Detenemos el envío solo si no hay imagen
+                    alert("Por favor, selecciona o arrastra una imagen para tu diseño antes de enviar.");
+                    return;
+                }
+                
+                // Si hay imagen, cambiamos el texto del botón a "Enviando..." y dejamos que el formulario proceda
+                const btnSubmit = document.getElementById('submitBtn');
+                btnSubmit.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Procesando archivo...';
+                btnSubmit.classList.add('disabled');
+            });
+        });
+    </script>
+</body>
+</html>

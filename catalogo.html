@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - Cobertores y Edredones - Cobertex</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand logo" href="index.html">Cober<span class="text-danger">tex</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nosotros.html">Quiénes somos</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active fw-bold dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Catálogo</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item active bg-danger" href="catalogo.html">Cobertores y Edredones</a></li>
+                            <li><a class="dropdown-item" href="sabanas.html">Sábanas</a></li>
+                            <li><a class="dropdown-item" href="#">Colchones</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="personalizacion.html">Personalización</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                </ul>
+                <div class="d-flex align-items-center text-white gap-3">
+                    <i class="fas fa-search" style="cursor:pointer"></i>
+                    <div class="position-relative" style="cursor:pointer">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge-cart" id="cartCount">0</span>
+                    </div>
+                    <i class="fas fa-bars" style="cursor:pointer"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="catalog-header py-5 bg-white mb-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1 class="display-5 fw-bold">Cobertores y Edredones</h1>
+                    <p class="lead text-muted">Explora cobertores y edredones para tu hogar o negocio.</p>
+                </div>
+                <div class="col-md-6 text-end d-none d-md-block">
+                    <img src="Imagenes/H1.png" class="rounded shadow-sm img-fluid" alt="Banner">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="row">
+            <aside class="col-lg-3 mb-4">
+                <div class="card border-0 shadow-sm p-4 sticky-top custom-scrollbar" style="top: 100px; z-index: 1010; max-height: calc(100vh - 120px); overflow-y: auto;">
+                    <h5 class="fw-bold mb-4">Filtros</h5>
+                    
+                    <div class="mb-4">
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0"><i class="fas fa-search text-muted"></i></span>
+                            <input type="text" id="searchInput" class="form-control border-start-0" placeholder="Buscar productos...">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="fw-bold small">Categorías</h6>
+                        <div class="form-check">
+                            <input class="form-check-input bg-danger border-danger category-filter" type="checkbox" id="catCobertores" value="Cobertores" checked>
+                            <label class="form-check-label text-danger fw-bold" for="catCobertores">Cobertores</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input bg-danger border-danger category-filter" type="checkbox" id="catEdredones" value="Edredones" checked>
+                            <label class="form-check-label text-danger fw-bold" for="catEdredones">Edredones</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="fw-bold small">Rango de precio</h6>
+                        <input type="range" class="form-range custom-range" id="priceFilter" min="20" max="1200" value="1200" step="10">
+                        <div class="d-flex justify-content-between small text-muted">
+                            <span>$20</span>
+                            <span id="priceValue">$1,200</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="fw-bold small">Tamaño</h6>
+                        <div class="form-check"><input class="form-check-input size-filter" type="checkbox" value="1 plaza"><label class="form-check-label ms-1 text-muted">1 plaza</label></div>
+                        <div class="form-check"><input class="form-check-input size-filter" type="checkbox" value="2 plazas"><label class="form-check-label ms-1 text-muted">2 plazas</label></div>
+                        <div class="form-check"><input class="form-check-input size-filter" type="checkbox" value="Queen"><label class="form-check-label ms-1 text-muted">Queen</label></div>
+                        <div class="form-check"><input class="form-check-input size-filter" type="checkbox" value="King"><label class="form-check-label ms-1 text-muted">King</label></div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="fw-bold small">Material</h6>
+                        <div class="form-check"><input class="form-check-input material-filter" type="checkbox" value="Algodón"><label class="form-check-label ms-1 text-muted">Algodón</label></div>
+                        <div class="form-check"><input class="form-check-input material-filter" type="checkbox" value="Microfibra"><label class="form-check-label ms-1 text-muted">Microfibra</label></div>
+                        <div class="form-check"><input class="form-check-input material-filter" type="checkbox" value="Polar"><label class="form-check-label ms-1 text-muted">Polar</label></div>
+                    </div>
+
+                    <button class="btn btn-danger w-100 mb-3 py-2 fw-bold" id="applyFiltersBtn">Aplicar filtros</button>
+                    <div class="text-center">
+                        <a href="#" class="text-dark text-decoration-none small" id="resetFiltersBtn">
+                            <i class="fas fa-undo me-1"></i> Limpiar filtros
+                        </a>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="col-lg-9">
+                <div class="d-flex justify-content-between align-items-center mb-4 bg-white p-3 rounded shadow-sm border">
+                    <span class="text-muted small fw-bold" id="productCountText">Mostrando 8 productos</span>
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="d-flex align-items-center gap-2 d-none d-md-flex">
+                            <span class="small text-muted">Ordenar por</span>
+                            <select class="form-select form-select-sm border-0 bg-light fw-bold" style="width: 150px;">
+                                <option>Más vendidos</option>
+                                <option>Precio menor</option>
+                                <option>Precio mayor</option>
+                            </select>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-outline-danger btn-sm active"><i class="fas fa-th"></i></button>
+                            <button class="btn btn-outline-secondary btn-sm"><i class="fas fa-list"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4" id="productsContainer">
+                    <div class="col-md-4 col-sm-6 product-item" data-price="59.80" data-category="Cobertores" data-size="1 plaza" data-material="Polar">
+                        <div class="product-card card border-0 shadow-sm h-100">
+                            <img src="Imagenes/10.png" class="card-img-top" alt="...">
+                            <div class="card-body p-3 d-flex flex-column">
+                                <span class="text-danger small fw-bold text-uppercase" style="font-size: 0.7rem;">Cobertores</span>
+                                <h6 class="card-title fw-bold my-1">Cobertor Borrega Premium</h6>
+                                <small class="text-muted d-block mb-3">1 plaza</small>
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <span class="fw-bold h5 mb-0">$59.80</span>
+                                    <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 col-sm-6 product-item" data-price="74.80" data-category="Edredones" data-size="2 plazas" data-material="Microfibra">
+                        <div class="product-card card border-0 shadow-sm h-100">
+                            <img src="Imagenes/3.png" class="card-img-top" alt="...">
+                            <div class="card-body p-3 d-flex flex-column">
+                                <span class="text-danger small fw-bold text-uppercase" style="font-size: 0.7rem;">Edredones</span>
+                                <h6 class="card-title fw-bold my-1">Edredón Ultra Soft</h6>
+                                <small class="text-muted d-block mb-3">2 plazas</small>
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <span class="fw-bold h5 mb-0">$74.80</span>
+                                    <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 col-sm-6 product-item" data-price="39.80" data-category="Cobertores" data-size="1 plaza" data-material="Polar">
+                        <div class="product-card card border-0 shadow-sm h-100">
+                            <img src="Imagenes/4.png" class="card-img-top" alt="...">
+                            <div class="card-body p-3 d-flex flex-column">
+                                <span class="text-danger small fw-bold text-uppercase" style="font-size: 0.7rem;">Cobertores</span>
+                                <h6 class="card-title fw-bold my-1">Cobertor Frazada Polar</h6>
+                                <small class="text-muted d-block mb-3">1 plaza</small>
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <span class="fw-bold h5 mb-0">$39.80</span>
+                                    <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 col-sm-6 product-item" data-price="120" data-category="Edredones" data-size="Queen" data-material="Algodón">
+                        <div class="product-card card border-0 shadow-sm h-100">
+                            <img src="Imagenes/9.png" class="card-img-top" alt="...">
+                            <div class="card-body p-3 d-flex flex-column">
+                                <span class="text-danger small fw-bold text-uppercase" style="font-size: 0.7rem;">Edredones</span>
+                                <h6 class="card-title fw-bold my-1">Edredón Premium Queen</h6>
+                                <small class="text-muted d-block mb-3">Queen</small>
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <span class="fw-bold h5 mb-0">$120.00</span>
+                                    <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 col-sm-6 product-item" data-price="150" data-category="Edredones" data-size="King" data-material="Algodón">
+                        <div class="product-card card border-0 shadow-sm h-100">
+                            <img src="Imagenes/5.png" class="card-img-top" alt="...">
+                            <div class="card-body p-3 d-flex flex-column">
+                                <span class="text-danger small fw-bold text-uppercase" style="font-size: 0.7rem;">Edredones</span>
+                                <h6 class="card-title fw-bold my-1">Edredón Deluxe King</h6>
+                                <small class="text-muted d-block mb-3">King</small>
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <span class="fw-bold h5 mb-0">$150.00</span>
+                                    <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 col-sm-6 product-item" data-price="85" data-category="Cobertores" data-size="2 plazas" data-material="Microfibra">
+                        <div class="product-card card border-0 shadow-sm h-100">
+                            <img src="Imagenes/6.png" class="card-img-top" alt="...">
+                            <div class="card-body p-3 d-flex flex-column">
+                                <span class="text-danger small fw-bold text-uppercase" style="font-size: 0.7rem;">Cobertores</span>
+                                <h6 class="card-title fw-bold my-1">Cobertor Microfibra 2P</h6>
+                                <small class="text-muted d-block mb-3">2 plazas</small>
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <span class="fw-bold h5 mb-0">$85.00</span>
+                                    <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 col-sm-6 product-item" data-price="200" data-category="Edredones" data-size="King" data-material="Algodón">
+                        <div class="product-card card border-0 shadow-sm h-100">
+                            <img src="Imagenes/7.png" class="card-img-top" alt="...">
+                            <div class="card-body p-3 d-flex flex-column">
+                                <span class="text-danger small fw-bold text-uppercase" style="font-size: 0.7rem;">Edredones</span>
+                                <h6 class="card-title fw-bold my-1">Edredón Lux King Size</h6>
+                                <small class="text-muted d-block mb-3">King</small>
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <span class="fw-bold h5 mb-0">$200.00</span>
+                                    <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 col-sm-6 product-item" data-price="95" data-category="Cobertores" data-size="Queen" data-material="Polar">
+                        <div class="product-card card border-0 shadow-sm h-100">
+                            <img src="Imagenes/11.png" class="card-img-top" alt="...">
+                            <div class="card-body p-3 d-flex flex-column">
+                                <span class="text-danger small fw-bold text-uppercase" style="font-size: 0.7rem;">Cobertores</span>
+                                <h6 class="card-title fw-bold my-1">Cobertor Térmico Queen</h6>
+                                <small class="text-muted d-block mb-3">Queen</small>
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <span class="fw-bold h5 mb-0">$95.00</span>
+                                    <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <nav class="mt-5">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled"><a class="page-link border-0 rounded-circle mx-1"><i class="fas fa-chevron-left"></i></a></li>
+                        <li class="page-item active"><a class="page-link border-0 rounded-circle mx-1 bg-danger text-white">1</a></li>
+                        <li class="page-item"><a class="page-link border-0 rounded-circle mx-1 text-dark" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link border-0 rounded-circle mx-1 text-dark" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link border-0 rounded-circle mx-1 text-dark" href="#"><i class="fas fa-chevron-right"></i></a></li>
+                    </ul>
+                </nav>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-secondary pt-5 pb-4 mt-5">
+        <div class="container">
+            <div class="row g-4 border-bottom border-secondary pb-4 mb-4">
+                <div class="col-md-4">
+                    <h3 class="text-white fw-bold mb-4">Cober<span class="text-danger">tex</span></h3>
+                    <p class="small">Expertos en ropa de cama y descanso. Productos de calidad para bienestar y confort en cada hogar.</p>
+                    <div class="d-flex gap-3 fs-5 mt-3">
+                        <a href="#" class="text-secondary"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-secondary"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-secondary"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" class="text-secondary"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 offset-md-1">
+                    <h6 class="text-white fw-bold mb-3 small">Nosotros</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="nosotros.html" class="text-secondary text-decoration-none">Quiénes somos</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Documentos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="text-white fw-bold mb-3 small">Información</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Preguntas frecuentes</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Ventas al por mayor</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="text-white fw-bold mb-3 small">Atención</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="contacto.html" class="text-secondary text-decoration-none">Contáctanos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center small">
+                <p class="mb-2 mb-md-0">&copy; 2024 Cobertex. Todos los derechos reservados.</p>
+                <div class="d-flex gap-4">
+                    <a href="#" class="text-secondary text-decoration-none">Términos y condiciones</a>
+                    <a href="#" class="text-secondary text-decoration-none">Aviso de privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elementos del DOM
+            const searchInput = document.getElementById('searchInput');
+            const priceFilter = document.getElementById('priceFilter');
+            const priceValue = document.getElementById('priceValue');
+            const categoryFilters = document.querySelectorAll('.category-filter');
+            const sizeFilters = document.querySelectorAll('.size-filter');
+            const materialFilters = document.querySelectorAll('.material-filter'); // NUEVO
+            const applyFiltersBtn = document.getElementById('applyFiltersBtn'); 
+            const resetFiltersBtn = document.getElementById('resetFiltersBtn'); 
+            const productsContainer = document.getElementById('productsContainer');
+            const productItems = document.querySelectorAll('.product-item');
+            const productCountText = document.getElementById('productCountText');
+
+            // Lógica del Carrito
+            let cartTotal = 0;
+            document.querySelectorAll('.btn-add-cart').forEach(button => {
+                button.addEventListener('click', () => {
+                    cartTotal++;
+                    document.getElementById('cartCount').textContent = cartTotal;
+                    // Animación visual del botón
+                    button.classList.add('bg-danger', 'text-white');
+                    setTimeout(() => {
+                        button.classList.remove('bg-danger', 'text-white');
+                    }, 200);
+                });
+            });
+
+            // Función principal de filtrado
+            function filterProducts() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const maxPrice = parseFloat(priceFilter.value);
+                const selectedCategories = Array.from(categoryFilters).filter(cb => cb.checked).map(cb => cb.value);
+                const selectedSizes = Array.from(sizeFilters).filter(cb => cb.checked).map(cb => cb.value);
+                const selectedMaterials = Array.from(materialFilters).filter(cb => cb.checked).map(cb => cb.value); // NUEVO
+                let visibleCount = 0;
+
+                productItems.forEach(product => {
+                    const productTitle = product.querySelector('.card-title').textContent.toLowerCase();
+                    const productPrice = parseFloat(product.dataset.price);
+                    const productCategory = product.dataset.category;
+                    const productSize = product.dataset.size;
+                    const productMaterial = product.dataset.material || ""; // NUEVO
+
+                    const searchMatch = productTitle.includes(searchTerm);
+                    const priceMatch = productPrice <= maxPrice;
+                    const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(productCategory);
+                    const sizeMatch = selectedSizes.length === 0 || selectedSizes.includes(productSize);
+                    const materialMatch = selectedMaterials.length === 0 || selectedMaterials.includes(productMaterial); // NUEVO
+
+                    if (searchMatch && priceMatch && categoryMatch && sizeMatch && materialMatch) {
+                        product.style.display = '';
+                        visibleCount++;
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+
+                if (productCountText) {
+                    productCountText.textContent = `Mostrando ${visibleCount} productos`;
+                }
+
+                // Mostrar mensaje de "No hay resultados"
+                if (visibleCount === 0) {
+                    if (!document.getElementById('noProductsMessage')) {
+                        const noProductsMsg = document.createElement('div');
+                        noProductsMsg.id = 'noProductsMessage';
+                        noProductsMsg.className = 'col-12 text-center py-5 w-100';
+                        noProductsMsg.innerHTML = '<h5 class="text-muted"><i class="fas fa-search me-2"></i>No se encontraron productos con estos filtros.</h5>';
+                        productsContainer.appendChild(noProductsMsg);
+                    }
+                } else {
+                    const noProductsMsg = document.getElementById('noProductsMessage');
+                    if (noProductsMsg) noProductsMsg.remove();
+                }
+            }
+
+            // Event Listeners
+            priceFilter.addEventListener('input', function() {
+                priceValue.textContent = '$' + parseFloat(this.value).toLocaleString('es-MX', { minimumFractionDigits: 0 }); // Ajustado a como se ve en el Figma
+            });
+
+            applyFiltersBtn.addEventListener('click', filterProducts);
+            
+            // Búsqueda al presionar "Enter" en el input
+            searchInput.addEventListener('keyup', function(e) {
+                if(e.key === 'Enter') filterProducts();
+            });
+
+            resetFiltersBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                searchInput.value = '';
+                priceFilter.value = 1200;
+                priceValue.textContent = '$1,200';
+                
+                // Categorías checkeadas por defecto (como en el diseño)
+                categoryFilters.forEach(cb => cb.checked = true); 
+                sizeFilters.forEach(cb => cb.checked = false);
+                materialFilters.forEach(cb => cb.checked = false); // NUEVO
+                
+                filterProducts();
+            });
+
+            // Inicializar al cargar la página
+            filterProducts();
+        });
+    </script>
+</body>
+</html>

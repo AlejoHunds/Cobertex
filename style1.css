@@ -1,0 +1,77 @@
+/* ESTILOS ESPECÍFICOS DEL CATÁLOGO */
+
+/* Estilos de la cabecera */
+.catalog-header {
+    background-color: white;
+    border-bottom: 1px solid #eee;
+}
+
+/* Inputs y Filtros */
+.form-check-input:checked {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.custom-range::-webkit-slider-thumb {
+    background: #dc3545;
+}
+
+.input-group-text {
+    border-radius: 8px 0 0 8px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #dee2e6;
+}
+
+/* Tarjeta de Producto */
+.product-card {
+    transition: all 0.3s ease;
+    border-radius: 12px !important;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.product-card img {
+    height: 220px;
+    object-fit: cover;
+}
+
+/* Botón de Carrito en Grilla */
+.btn-add-cart {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid #eee;
+    background: white;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.btn-add-cart:hover {
+    background: #dc3545;
+    color: white;
+    border-color: #dc3545;
+}
+
+/* Paginación */
+.page-link {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.page-item.active .page-link {
+    background-color: #dc3545 !important;
+}
